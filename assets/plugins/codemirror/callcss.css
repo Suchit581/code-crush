@@ -1,0 +1,19 @@
+@import "lib/codemirror.css";
+@import "addon/fold/foldgutter.css";
+@import "addon/dialog/dialog.css";
+@import "addon/display/fullscreen.css";
+@import "addon/hint/show-hint.css";
+@import "addon/edit/foldgutter.css";
+@import "addon/merge/merge.css";
+@import "addon/scroll/simplescrollbars.css";
+@import "addon/search/matchonscrollbar.css";
+@import "addon/tern/tern.css";
+@import "addon/lint/lint.css";
+@import "theme/tomorrow-night-eighties.css";
+@import "theme/base16-light.css";
+.CodeMirror-selected  {
+	background-color: rgba(102,100,212,0.8) !important;
+}
+.cm-s-tomorrow-night-eighties .CodeMirror-gutters {
+    	border-right: 1px solid rgba(255,255,255,0.1) !important;
+	}

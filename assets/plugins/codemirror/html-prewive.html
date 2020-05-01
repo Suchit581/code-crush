@@ -1,0 +1,139 @@
+<!doctype html>
+<title>CodeMirror: HTML5 preview</title>
+<meta charset="utf-8"/>
+<link rel=stylesheet href=lib/codemirror.css>
+<script src=lib/codemirror.js></script>
+<script src=mode/xml/xml.js></script>
+<script src=mode/javascript/javascript.js></script>
+<script src=mode/css/css.js></script>
+<script src=mode/htmlmixed/htmlmixed.js></script>
+<script src="addon/comment/comment.js"></script>
+<script src="addon/selection/active-line.js"></script>
+<script src="keymap/sublime.js"></script>
+<script type="text/javascript" src="addon/selection/mark-selection.js"></script>
+<script type="text/javascript" src="addon/selection/selection-pointer.js"></script>
+  
+  <script type="text/javascript" src="js/csslint.js"></script>
+  <script type="text/javascript" src="js/jslint.js"></script>
+  <!-- edit -->
+      <script type="text/javascript" src="addon/edit/closebrackets.js"></script>
+      <script type="text/javascript" src="addon/edit/closetag.js"></script>
+      <script type="text/javascript" src="addon/edit/continuelist.js"></script>
+      <script type="text/javascript" src="addon/edit/matchtags.js"></script>
+      <script type="text/javascript" src="addon/edit/trallingspace.js"></script>
+      <script type="text/javascript" src="addon/edit/matchbrackets.js"></script>
+  <!-- fold -->
+      <script type="text/javascript" src="addon/fold/brace-fold.js"></script>
+      <script type="text/javascript" src="addon/fold/foldcode.js"></script>
+      <script type="text/javascript" src="addon/fold/foldgutter.js"></script>
+      <script type="text/javascript" src="addon/fold/indent-fold.js"></script>
+      <script type="text/javascript" src="addon/fold/xml-fold.js"></script>
+      <script type="text/javascript" src="addon/fold/markdown-fold.js"></script>
+      <script type="text/javascript" src="addon/fold/comment-fold.js"></script>
+<!-- hint -->
+      <script type="text/javascript" src="addon/hint/anyword-hint.js"></script>
+      <script type="text/javascript" src="addon/hint/html-hint.js"></script>
+      <script type="text/javascript" src="addon/hint/javascript-hint.js"></script>
+      <script type="text/javascript" src="addon/hint/show-hint.js"></script>
+      <script type="text/javascript" src="addon/hint/sql-hint.js"></script>
+      <script type="text/javascript" src="addon/hint/xml-hint.js"></script>
+<!-- search -->
+      <script type="text/javascript" src="addon/search/jump-to-line.js"></script>
+      <script type="text/javascript" src="addon/search/match-highlighter.js"></script>
+      <script type="text/javascript" src="addon/search/matchonscrollbar.js"></script>
+      <script type="text/javascript" src="addon/search/search.js"></script>
+      <script type="text/javascript" src="addon/search/searchcursor.js"></script>
+<!-- scroll -->
+      <script type="text/javascript" src="addon/scroll/annotatescrollbar.js"></script>
+      <script type="text/javascript" src="addon/scroll/scrollpasted.js"></script>
+      <script type="text/javascript" src="addon/scroll/simplescrollbars.js"></script>
+<!-- lint -->
+      <script src="addon/lint/lint.js"></script>
+      <script src="addon/lint/javascript-lint.js"></script>
+      <script src="addon/lint/json-lint.js"></script>
+      <script src="addon/lint/css-lint.js"></script>
+
+<link rel="stylesheet" href="addon/fold/foldgutter.css">
+<link rel="stylesheet" href="addon/dialog/dialog.css">
+<link rel="stylesheet" type="text/css" href="addon/lint/lint.css">      
+<link rel="stylesheet" type="text/css" href="addon/scroll/simplescrollbars.css">
+<link rel="stylesheet" type="text/css" href="addon/search/matchonscrollbar.css">
+<link rel="stylesheet" type="text/css" href="addon/hint/show-hint.css">
+<link rel="stylesheet" type="text/css" href="addon/edit/foldgutter.css">
+<!-- them css -->
+        <link rel="stylesheet" href="theme/tomorrow-night-eighties.css">
+<style type=text/css>
+      .CodeMirror {
+        float: left;
+        width: 50%;
+        border: 1px solid black;
+      }
+      iframe {
+        width: 49%;
+        float: left;
+        height: 300px;
+        border: 1px solid black;
+        border-left: 0px;
+      }
+    </style>
+
+<article>
+
+<textarea id=code name=code>
+  <!doctype html>
+  <html>
+    <head>
+      <meta charset=utf-8>
+      <title>HTML5 canvas demo</title>
+      <style>p {font-family: monospace;}</style>
+    </head>
+    <body>
+      <p>Canvas pane goes here:</p>
+      <canvas id=pane width=300 height=200></canvas>
+      <script>
+        var canvas = document.getElementById('pane');
+        var context = canvas.getContext('2d');
+
+        context.fillStyle = 'rgb(250,0,0)';
+        context.fillRect(10, 10, 55, 50);
+
+        context.fillStyle = 'rgba(0, 0, 250, 0.5)';
+        context.fillRect(30, 30, 55, 50);
+      </script>
+    </body>
+  </html>
+</textarea>
+<iframe id=preview></iframe>
+    <script>
+      var delay;
+      // Initialize CodeMirror editor with a nice html5 canvas demo.
+      var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+        lineNumbers:true,
+        mode: 'text/html',
+        keyMap: "sublime",
+        lint: true,
+        gutters: ["CodeMirror-lint-markers"],
+        theme: "tomorrow-night-eighties",
+        styleActiveLine: true,
+        extraKeys: {"Ctrl-Space": "autocomplete"},
+        lineWrapping: true,
+        extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }},
+        foldGutter: true,
+        gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+      });
+      editor.on("change", function() {
+        clearTimeout(delay);
+        delay = setTimeout(updatePreview, 300);
+      });
+      
+      function updatePreview() {
+        var previewFrame = document.getElementById('preview');
+        var preview =  previewFrame.contentDocument ||  previewFrame.contentWindow.document;
+        preview.open();
+        preview.write(editor.getValue());
+        preview.close();
+      }
+      
+      setTimeout(updatePreview, 1000);
+    </script>
+  </article>

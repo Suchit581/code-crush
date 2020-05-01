@@ -1,0 +1,85 @@
+	.top-spacing{
+		margin-top: 5%;
+	}
+	.center-spacing .proude{
+		margin-top: 2% ;
+	}
+	.center-spacing .img{
+		margin-top: 6% ;
+	}
+	.center-spacing .name{
+		margin-top: 4% ;
+	}
+	.center-spacing .detail{
+		margin-top: 4%;
+	}
+	.bottom-margin{
+		margin-top: 19.5%; 
+	}
+	.gift{
+		transform: translate(-9%,245%);
+		font-size: 24px;
+		font-family: Lucida Sans;
+		font-weight: bold;
+		text-transform: capitalize;
+		color: #f86e4f;
+	}
+	.certificate{
+		font-size: 156px;
+		font-family: French Script MT;
+
+	}
+	.course{
+		color: #f86e4f;
+		transform: translate(-9.5%,-220%);
+		font-size: 16px;
+		font-family: Lucida Sans;
+		font-weight: bold;
+		text-transform: capitalize;	
+	}
+	.hr-top{
+		position: relative;
+		left: -6%;
+		transform: translate(-0%,-5.9em);
+		width: 151px;
+		height: 2px;
+		background: #000;
+	}
+	.proude{
+		font-size: 14px;
+		font-family:Franklin Gothic Book;
+		font-weight: bold;
+		text-transform: capitalize;
+	}
+	.name{
+		font-size: 120px;
+		font-family: French Script MT;
+	}
+	.detail{
+		font-size: 20px;
+		font-family: Franklin Gothic Book;
+		text-transform: capitalize;	
+	}
+	.top-margin{
+		margin-bottom: 5%; 
+	}
+	.hr{
+		background-color: #282828;
+		height: 2px;
+		width: 228px;
+	}
+	.img-formate{
+		position: relative;
+	}
+	.formate img{
+		height: 250vh;
+		margin: 0;
+		padding: 0;
+		position: relative;
+		z-index: -1;
+	}
+	.formate{
+		position: absolute;
+	}
+	
+}

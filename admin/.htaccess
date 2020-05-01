@@ -1,0 +1,5 @@
+ErrorDocument 400 /codecrush/lctrs-try/1.0.2/404page.php
+ErrorDocument 401 /codecrush/lctrs-try/1.0.2/404page.php
+ErrorDocument 403 /codecrush/lctrs-try/1.0.2/404page.php
+ErrorDocument 404 /codecrush/lctrs-try/1.0.2/404page.php
+ErrorDocument 500 /codecrush/lctrs-try/1.0.2/404page.php

@@ -1,0 +1,1 @@
+<div class="copy"><p> &copy; 2016 CodeCrush. All Rights Reserved | Design by <a href="index.php" target="_blank">CodeCrush</a></p></div>
