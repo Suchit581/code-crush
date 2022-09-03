@@ -1,4 +1,4 @@
-![](images/logo.jpg)
+![](images/logo.png)
 
 # **Code Crush** 
 
